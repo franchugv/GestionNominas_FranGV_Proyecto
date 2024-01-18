@@ -107,8 +107,6 @@ namespace GNomina_V3_FranGV
             get     // Lectura
             {
                 CalcularHorasExtra();
-                if (_horasExtra == 0) throw new Exception("Horas extra no establecidas");
-
                 return _horasExtra;
             }
 
@@ -130,6 +128,7 @@ namespace GNomina_V3_FranGV
         {
             get
             {
+                CalculaarSalarioBase();
                 return _salarioBase;
             }
         }
@@ -137,7 +136,7 @@ namespace GNomina_V3_FranGV
 
         // MÉTODOS PRIVADOS
         /// <summary>
-        /// 
+        /// Cálculo de las horas Extra del Trabajajdor
         /// </summary>s
         private void CalcularHorasExtra()
         {
@@ -151,19 +150,22 @@ namespace GNomina_V3_FranGV
 
             // V2 CON PROTECCIÓN Si no tenemos las horas extra y las horas trabajadas no se hará el calculo
 
-            if (HorasExtra > HorasTrabajadas) _horasExtra = HorasTrabajadas - HORAS_SEMANALES;
+            if (HorasTrabajadas > HORAS_SEMANALES) _horasExtra = HorasTrabajadas - HORAS_SEMANALES;
             else _horasExtra = 0;
         }
 
 
         /// <summary>
-        /// 
+        /// Cálculo del Salario Extra del trabajador
         /// </summary>
         private void CalcularSalarioExtra()
         {
             _salarioExtra = HorasExtra * SalarioHora * INCR_EXTRA;
         }
 
+        /// <summary>
+        /// Calcuulo del salario base del trabajador
+        /// </summary>
         private void CalculaarSalarioBase()
         {
 
@@ -175,3 +177,4 @@ namespace GNomina_V3_FranGV
 
     }
 }
+// 12:26

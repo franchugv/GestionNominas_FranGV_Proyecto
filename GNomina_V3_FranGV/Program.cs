@@ -26,6 +26,9 @@
             nominaEmpleado.apellidos = Interfaz.LeerCadena("apellidos");
             nominaEmpleado.puesto = Interfaz.LeerCadena("puesto");
 
+
+            
+
             // SOLICITAR HORAS
             // Horas trabajadas
             nominaEmpleado.HorasTrabajadas = Interfaz.LeerHorasTrabajadas("horas trabajadas", nominaEmpleado);
@@ -36,13 +39,13 @@
             // PROCESO
             // Calculo de las Horas
 
-            //nominaEmpleado.CalcularHorasExtra(nominaEmpleado.HorasTrabajadas);
+            
 
             // Calculo del Salario Base
             nominaEmpleado.salarioBase = CalculosNomina.SalarioBase(nominaEmpleado.HorasTrabajadas, nominaEmpleado.SalarioHora);
 
             // Calculo salario extra
-            nominaEmpleado.salarioExtra = CalculosNomina.SalarioExtra(nominaEmpleado.HorasExtra, nominaEmpleado.SalarioHora);
+            nominaEmpleado.SalarioExtra = CalculosNomina.SalarioExtra(nominaEmpleado.HorasExtra, nominaEmpleado.SalarioHora);
 
             // Cálculo del Salario Bruto
             nominaEmpleado.salarioBruto = CalculosNomina.SalarioBruto(nominaEmpleado.salarioBase, nominaEmpleado.salarioExtra);

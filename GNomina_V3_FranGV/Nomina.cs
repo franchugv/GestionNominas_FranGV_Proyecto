@@ -16,6 +16,9 @@ namespace GNomina_V3_FranGV
 
         private const int HORAS_SEMANALES = 35;
 
+        private const float INCR_EXTRA = 1.5f;
+
+
 
 
         private const float SALARIO_MAX = 22.5f;
@@ -34,7 +37,7 @@ namespace GNomina_V3_FranGV
      
         // Datos Calculados
         private int _horasExtra;    // Protección: No permitir establecer nigún valor externo
-        public float salarioExtra;
+        private float _salarioExtra;
         public float salarioBase;
         public float salarioBruto;
         public float impuestos;
@@ -103,6 +106,7 @@ namespace GNomina_V3_FranGV
 
             get     // Lectura
             {
+                CalcularHorasExtra();
                 if (_horasExtra == 0) throw new Exception("Horas extra no establecidas");
 
                 return _horasExtra;
@@ -110,9 +114,23 @@ namespace GNomina_V3_FranGV
 
         }
 
-        // MÉTODOS PÚBLICOS
 
-        public void CalcularHorasExtra()
+        public float SalarioExtra
+        {
+            get
+            {
+                CalcularSalarioExtra();
+                return _salarioExtra;
+            }
+
+        }
+
+
+        // MÉTODOS PÚBLICOS
+        /// <summary>
+        /// 
+        /// </summary>s
+        private void CalcularHorasExtra()
         {
             // RECURSOS LOCALES
 
@@ -129,6 +147,13 @@ namespace GNomina_V3_FranGV
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private void CalcularSalarioExtra()
+        {
+            _salarioExtra = HorasExtra * SalarioHora * INCR_EXTRA;
+        }
 
 
 

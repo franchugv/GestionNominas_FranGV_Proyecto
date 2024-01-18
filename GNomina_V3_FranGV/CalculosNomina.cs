@@ -8,25 +8,21 @@ namespace GNomina_V3_FranGV
 {
     public static class CalculosNomina
     {
-        /// <summary>
-        /// Cálculo de las Horas Extra realizadas
-        /// </summary>
-        /// <param name="horas">Horas Trabajadas</param>
-        /// <returns>Horas Extra</returns>
-        public static int HorasExtra(int horas)
-        {
-            // CONSTANTES
-            const int HORAS_SEMANALES = 35;
+      
+        //public static int HorasExtra(int horas)
+        //{
+        //    // CONSTANTES
+        //    const int HORAS_SEMANALES = 35;
 
-            // RECURSOS LOCALES
-            int extra = 0;
+        //    // RECURSOS LOCALES
+        //    int extra = 0;
             
-            // PROCESO
-            if (horas > HORAS_SEMANALES) extra = horas - HORAS_SEMANALES;
+        //    // PROCESO
+        //    if (horas > HORAS_SEMANALES) extra = horas - HORAS_SEMANALES;
 
-            // SALIDA - Método
-            return extra;
-        }
+        //    // SALIDA - Método
+        //    return extra;
+        //}
 
         /// <summary>
         /// Cálculo de los Impuestos a aplicar

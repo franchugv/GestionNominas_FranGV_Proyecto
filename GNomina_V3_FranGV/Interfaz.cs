@@ -103,7 +103,7 @@ namespace GNomina_V3_FranGV
             return horas;
         }
 
-        public static void LeerHorasTrabajadas(string dato, Nomina objeto)
+        public static int LeerHorasTrabajadas(string dato, Nomina objeto)
         {
             // VARIABLES
             string aux = null;  // char[] aux;
@@ -138,6 +138,8 @@ namespace GNomina_V3_FranGV
                 Console.Clear();
 
             } while (!esValido);
+
+            return objeto.HorasTrabajadas;
 
         }
 
@@ -201,7 +203,7 @@ namespace GNomina_V3_FranGV
                 try
                 {
                     // Proceso de Validación
-                    objeto.ho = Comprobaciones.ValidarSalarioHora(aux);
+                    objeto.SalarioHora = Comprobaciones.ValidarSalarioHora(aux);
                 }
                 catch (Exception Error)
                 {
@@ -221,7 +223,7 @@ namespace GNomina_V3_FranGV
             } while (!esValido);
 
             // SALIDA - Método
-            return horas;
+            return objeto.SalarioHora;
         }
 
 
@@ -234,6 +236,14 @@ namespace GNomina_V3_FranGV
             Console.WriteLine($"\tPuesto: {OBJ.puesto}");
             Console.WriteLine($"\tHoras trabajadas: {OBJ.HorasTrabajadas}");
             Console.WriteLine($"\tSalario Hora: {OBJ.SalarioHora}");
+            Console.WriteLine($"\tSalario Base: {OBJ.salarioBase}");
+            Console.WriteLine($"\tSalario Neto: {OBJ.salarioNeto}");
+            Console.WriteLine($"\tSalario Bruto: {OBJ.salarioBruto}");
+            Console.WriteLine($"\tSalario Neto: {OBJ.salarioNeto}");
+            Console.WriteLine($"\tSalario Extra: {OBJ.salarioExtra}");
+
+
+
 
 
         }

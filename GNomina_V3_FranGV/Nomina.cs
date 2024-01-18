@@ -14,6 +14,8 @@ namespace GNomina_V3_FranGV
 
         private const int MINIMO_HORAS = 0;
 
+        private const int HORAS_SEMANALES = 35;
+
 
 
         private const float SALARIO_MAX = 22.5f;
@@ -30,22 +32,27 @@ namespace GNomina_V3_FranGV
         private int _horasTrabajadas;
         private float _salarioHora;
      
-        public int horasExtra;
-
+        // Datos Calculados
+        private int _horasExtra;    // Protección: No permitir establecer nigún valor externo
         public float salarioExtra;
         public float salarioBase;
         public float salarioBruto;
-        public float salarioNeto;
-
         public float impuestos;
+        public float salarioNeto;
 
         // PROPIEDADES (Las propiededas siempren empiezan por mayuscula, sin parentesis)
 
+        /// <summary>
+        /// Horas trabajadas
+        /// </summary>
         public int HorasTrabajadas
         {
             get // Se activa cuando se consulta e valor del miembro |Devolver el valor del miembro privado
                 // Resultado = ----.HorasTrabajadas - 10;
-            {   
+            {
+
+                if (_horasExtra == null) throw new Exception($"No se a establecido las horas trabajadas");
+
                 return _horasTrabajadas;
             }
             set // Se activa cuando se le asigna a la Propiedad un valor
@@ -62,24 +69,64 @@ namespace GNomina_V3_FranGV
             }
         }
 
+        /// <summary>
+        /// Salario que percibe el trabajador por hora trabajada
+        /// </summary>
         public float SalarioHora
         {
             get 
             {
+                // Comprobacipnes
                 if (_salarioHora == 0) throw new Exception("Salario no establecido");
-
+                // Devolución del valor del miembro asociado
                 return _salarioHora;
             }
             set
             {
+                //Validación del dato proporcionado SOLO EL DATO PROPORCIONADO
                 // Comprobación 1: Horas no superiores al límite
                 if (value > SALARIO_MAX) throw new Exception($"Horas {value} son superiores al {SALARIO_MAX}");
                 // Comprobación 2: Horas inferiores o iguales a 1
                 if (value <= SALARIO_MIN) throw new Exception($"Horas inferiores o iguales a {MINIMO_HORAS}");
 
-            }
+                // Establecer el valor al miembro asociado
+
+                _salarioHora = value;
+            } 
         }
-        
+
+        /// <summary>
+        /// Horas extra
+        /// </summary>
+        public int HorasExtra
+        {
+
+            get     // Lectura
+            {
+                if (_horasExtra == 0) throw new Exception("Horas extra no establecidas");
+
+                return _horasExtra;
+            }
+
+        }
+
+        // MÉTODOS PÚBLICOS
+
+        public void CalcularHorasExtra()
+        {
+            // RECURSOS LOCALES
+
+            // PROCESO
+
+            //// V1 SIN PROTECCIÓON
+            //if (_horasTrabajadas > HORAS_SEMANALES) _horasExtra = _horasTrabajadas - HORAS_SEMANALES;
+            //else _horasExtra = 0;
+
+            // V2 CON PROTECCIÓN Si no tenemos las horas extra y las horas trabajadas no se hará el calculo
+
+            if (HorasExtra > HorasTrabajadas) _horasExtra = HorasTrabajadas - HORAS_SEMANALES;
+            else _horasExtra = 0;
+        }
 
 
 

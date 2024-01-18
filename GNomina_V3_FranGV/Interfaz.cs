@@ -299,7 +299,7 @@ namespace GNomina_V3_FranGV
             Console.WriteLine($"\tSalario Hora: {OBJ.SalarioHora}");
             Console.WriteLine($"\tSalario Base: {OBJ.SalarioBase}");
             Console.WriteLine($"\tSalario Neto: {OBJ.salarioNeto}");
-            Console.WriteLine($"\tSalario Bruto: {OBJ.salarioBruto}");
+            Console.WriteLine($"\tSalario Bruto: {OBJ.SalarioBruto}");
             Console.WriteLine($"\tSalario Neto: {OBJ.salarioNeto}");
             Console.WriteLine($"\tSalario Extra: {OBJ.SalarioExtra}");
 

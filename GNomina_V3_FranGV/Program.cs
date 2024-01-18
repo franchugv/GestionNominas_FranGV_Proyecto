@@ -43,18 +43,7 @@ namespace GNomina_V3_FranGV
 
 
             // PROCESO
-            // Calculo de las Horas
 
-           
-
-            // Cálculo del Salario Bruto
-            nominaEmpleado.salarioBruto = CalculosNomina.SalarioBruto(nominaEmpleado.SalarioBase, nominaEmpleado.SalarioExtra);
-
-            // Cálculo de los Impuestos
-            nominaEmpleado.impuestos = CalculosNomina.Impuestos(nominaEmpleado.salarioBruto);
-
-            // Cálculo del Salario Neto
-            nominaEmpleado.salarioNeto = CalculosNomina.SalarioNeto(nominaEmpleado.salarioBruto, nominaEmpleado.impuestos);
 
 
 
@@ -70,7 +59,7 @@ namespace GNomina_V3_FranGV
             Interfaz.MostrarLinea();
             Interfaz.MostrarHonorarios(nominaEmpleado.SalarioBase, nominaEmpleado.SalarioExtra);
             Interfaz.MostrarLinea();
-            Interfaz.MostrarNomina(nominaEmpleado.salarioBruto, nominaEmpleado.impuestos, nominaEmpleado.salarioNeto);
+            Interfaz.MostrarNomina(nominaEmpleado.SalarioBruto, nominaEmpleado.impuestos, nominaEmpleado.salarioNeto);
 
         }
     }

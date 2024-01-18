@@ -26,60 +26,6 @@ namespace GNomina_V3_FranGV
             return bruto * PORCENTAJE_IMP;
         }
 
-        /// <summary>
-        /// Cálculo del Salario Base del Trabajador
-        /// </summary>
-        /// <param name="horas">Horas Trabajadas</param>
-        /// <param name="eurosHora">Salario por Hora Trabajada</param>
-        /// <returns>Salario Base</returns>
-        public static float SalarioBase(int horas, float eurosHora)
-        {
-            // CONSTANTES
-            const int HORAS_SEMANALES = 35;
-
-            // RECURSOS LOCALES
-            float salario = 0;
-
-            // PROCESO
-            // El cálculo del salario base se realiza sobre las horas que no son extra
-            if (horas > HORAS_SEMANALES) salario = HORAS_SEMANALES * eurosHora;
-            else salario = horas * eurosHora;
-
-            // SALIDA - Método
-            return salario;
-        }
-
-        /// <summary>
-        /// Cálculo del Salario Bruto del Trabajador
-        /// </summary>
-        /// <param name="salBase">Salario Base</param>
-        /// <param name="salExtra">Salario Extra</param>
-        /// <returns>Salario Bruto</returns>
-        public static float SalarioBruto(float salBase, float salExtra)
-        {
-            // CONSTANTES
-            // RECURSOS LOCALES
-            // PROCESO
-            // SALIDA - Método
-            return salBase + salExtra;
-        }
-
-        /// <summary>
-        /// Cálculo del Salario Extra del Trabajador
-        /// </summary>
-        /// <param name="horas">Horas Extra</param>
-        /// <param name="eurosHora">Salario por Hora Trabajada</param>
-        /// <returns></returns>
-        public static float SalarioExtra(int horas, float eurosHora)
-        {
-            // CONSTANTES
-            const float INCR_EXTRA = 1.5f;
-
-            // RECURSOS LOCALES
-            // PROCESO
-            // SALIDA - Método
-            return horas * eurosHora * INCR_EXTRA;
-        }
 
         /// <summary>
         /// Cálculo del Salario Neto del Trabajador

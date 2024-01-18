@@ -39,7 +39,7 @@ namespace GNomina_V3_FranGV
         private int _horasExtra;    // Protección: No permitir establecer nigún valor externo
         private float _salarioExtra;
         private float _salarioBase;
-        public float salarioBruto;
+        private float _salarioBruto;
         public float impuestos;
         public float salarioNeto;
 
@@ -133,6 +133,17 @@ namespace GNomina_V3_FranGV
             }
         }
 
+        public float SalarioBruto
+        {
+            get
+            {
+                CalcularSalarioBruto();
+                return _salarioBruto;
+            }
+
+
+
+        }
 
         // MÉTODOS PRIVADOS
         /// <summary>
@@ -174,7 +185,13 @@ namespace GNomina_V3_FranGV
 
         }
 
+        private void CalcularSalarioBruto()
+        {
+            _salarioBruto = SalarioBase + SalarioExtra;
+
+        }
+
 
     }
 }
-// 12:26
+// 18:04
